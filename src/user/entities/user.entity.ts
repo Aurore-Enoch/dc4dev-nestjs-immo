@@ -1,4 +1,5 @@
 import { AdvertEntity } from "src/advert/entities/advert.entity";
+import { CategoryEntity } from "src/category/entities/category.entity";
 import { TimestampEntity } from "src/generic/timestamp.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -22,4 +23,7 @@ export class UserEntity  extends TimestampEntity {
 
     @OneToMany(() => AdvertEntity, advert => advert.user)
     adverts: AdvertEntity[];
+
+    @OneToMany(() => CategoryEntity, category => category.user)
+    categories: CategoryEntity[];
 }
